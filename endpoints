@@ -1,0 +1,7 @@
+
+POST /webmentor/register/ - Registrar nuevo usuario
+POST /webmentor/token/ - Obtener tokens JWT (login)
+POST /webmentor/token/refresh/ - Refrescar token de acceso
+GET /webmentor/users/ - Listar todos los usuarios registrados
+GET /webmentor/users/{id}/ - Obtener detalles de un usuario específico
+POST /webmentor/logout/ - Cerrar sesión
