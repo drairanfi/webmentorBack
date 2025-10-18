@@ -74,3 +74,21 @@ class UserDetailView(APIView):
             return Response({
                 'error': 'Usuario no encontrado'
             }, status=status.HTTP_404_NOT_FOUND)
+
+class UserDeleteView(APIView):
+    permission_classes = [IsAuthenticated]
+    
+    def delete(self, request, user_id):
+        """
+        Elimina un usuario específico.
+        """
+        try:
+            user = User.objects.get(id=user_id)
+            user.delete()
+            return Response({
+                'message': 'Usuario eliminado exitosamente'
+            }, status=status.HTTP_200_OK)
+        except User.DoesNotExist:
+            return Response({
+                'error': 'Usuario no encontrado'
+            }, status=status.HTTP_404_NOT_FOUND)

@@ -4,7 +4,7 @@ from rest_framework_simplejwt.views import (
     TokenRefreshView,
     TokenBlacklistView,
 )
-from .views import RegisterView, UserListView, UserDetailView
+from .views import RegisterView, UserListView, UserDetailView, UserDeleteView
 
 urlpatterns = [
     # endpoint para registrar nuevos usuarios
@@ -20,4 +20,7 @@ urlpatterns = [
     path('users/', UserListView.as_view(), name='user_list'),
     # endpoint para obtener detalles de un usuario específico
     path('users/<int:user_id>/', UserDetailView.as_view(), name='user_detail'),
+    # endpoint para eliminar un usuario específico
+    path('users/<int:user_id>/delete/', UserDeleteView.as_view(), name='user_delete'),
+
 ]
